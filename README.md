@@ -9,7 +9,7 @@ The app uses localStorage to store user data so that it remains saved even after
 🌐 Live Demo
 
 🔗 View Live Website
-(Replace this link with your actual GitHub Pages URL once deployed)
+https://ahmi9.github.io/Bank-Web-App/
 ⸻
 
 🚀 Features
