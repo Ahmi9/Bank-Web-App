@@ -10,6 +10,7 @@ The app uses localStorage to store user data so that it remains saved even after
 
 🔗 View Live Website
 https://ahmi9.github.io/Bank-Web-App/
+❌ Not responsive. Open it on desktop only!
 ⸻
 
 🚀 Features
