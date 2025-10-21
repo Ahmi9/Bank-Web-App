@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bank</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="card" id="card">
+            <div class="top-buttons">
+                <button class="button" id="loginBtn">Login</button>
+                <button class="button" id="signupBtn">Create Account</button>
+            </div>
+            <div class="loginPage" id="loginPage">
+                <h1>Welcome Back!</h1>
+                <input type="email" placeholder="Username" required id="loginUsername">
+                <input type="password" placeholder="Pin" required id="loginPin">
+                <button id="loggedin">Login</button>
+                <h4 id="loginPageError">⚠️ | Invalid Credentials!</h4>
+            </div>
+            <div class="signupPage" id="signupPage">
+                <h1>SignUp!</h1>
+                <form id="formSignup">
+                    <input type="email" placeholder="Username" required id="signupUsername">
+                    <input type="password" placeholder="Pin" required id="signupPin">
+                </form>
+                <button id="signedUp">Create Account</button>
+                <h4 id="signupPageError"></h4>
+            </div>
+        </div>
+        <h1 id="welcome" class="welcome"></h1>
+        <div class="main" id="main">
+            <div class="mainCards">
+                <div class="mainCard balance" id="balanceCard">
+                    <h4 id="balanceHeading">Balance</h4>
+                    <h3 id="balanceText"></h3>
+                </div>
+                <div class="mainCard deposit" id="depositCard">
+                    <h4 id="depositHeading">Deposit</h4>
+                    <h3 id="depositText"></h3>
+                </div>
+                <div class="mainCard withdraw" id="withdrawCard">
+                    <h4 id="withdrawHeading">Withdraw</h4>
+                    <h3 id="withdrawText"></h3>
+                </div>
+            </div>
+            <div class="depoWith" id="depoWith">
+                <div class="depositSection">
+                    <h2>Deposit</h2>
+                    <input type="number" id="depositAmount" placeholder="Enter Amount" required>
+                    <button id="depositBtn">Deposit</button>
+                    <h4 id="depoError"></h4>
+                </div>
+                <div class="withdrawSection">
+                    <h2>Withdraw</h2>
+                    <input type="number" id="withdrawAmount" placeholder="Enter Amount" required>
+                    <button id="withdrawBtn">Withdraw</button>
+                    
+                    <h4 id="withError"></h4>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script src="script.js"></script>
+</body>
+
+</html>

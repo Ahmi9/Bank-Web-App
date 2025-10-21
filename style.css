@@ -1,0 +1,342 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    color: #313131;
+}
+
+
+.container {
+    width: 100%;
+    height: 100vh;
+}
+
+.container .card {
+    background-color: #fff;
+    width: 400px;
+    height: 500px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 24px;
+    box-shadow: 0px 0px 10px;
+    padding: 30px 40px;
+    
+}
+
+.container .card .top-buttons {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.button {
+    padding: 5px 20px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    font-size: 18px;
+    font-weight: 500;
+    border-bottom: 1px solid #fff;
+}
+
+.button:hover {
+    border-bottom: 1px solid #313131;
+}
+
+.container .card .loginPage {
+    display: flex;
+    flex-direction: column;
+    width: auto;
+    height: auto;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin-top: 30px;
+    animation: opacity 1s ease-in-out;
+}
+
+@keyframes opacity {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.opacityAnimation {
+    animation: opacity 1s ease-in-out;
+}
+
+.container .card .loginPage input {
+    width: 200px;
+    padding: 5px 10px;
+    border: 2px solid #313131;
+    border-radius: 12px;
+    background: none;
+}
+
+.container .card .loginPage input::placeholder {
+    color: #313131;
+}
+
+.container .card .loginPage button {
+    padding: 10px 40px;
+    font-size: 18px;
+    font-weight: 600;
+    background-color: #fff;
+    border: 2px solid #313131;
+    border-radius: 24px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.container .card .loginPage button:hover {
+    background-color: #313131;
+    color: #fff;
+}
+
+.container .card .signupPage {
+    display: flex;
+    flex-direction: column;
+    width: auto;
+    height: auto;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin-top: 30px;
+    animation: opacity 1s ease-in-out;
+}
+
+.container .card .signupPage input {
+    width: 200px;
+    padding: 5px 10px;
+    border: 2px solid #313131;
+    border-radius: 12px;
+    background: none;
+}
+
+.container .card .signupPage input::placeholder {
+    color: #313131;
+}
+
+.container .card .signupPage button {
+    padding: 10px 40px;
+    font-size: 18px;
+    font-weight: 600;
+    background-color: #fff;
+    border: 2px solid #313131;
+    border-radius: 24px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.container .card .signupPage button:hover {
+    background-color: #313131;
+    color: #fff;
+}
+
+#formSignup {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+}
+
+@keyframes display0 {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+.main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    height: 100vh;
+    animation: opacity 0.5s ease-in-out;
+}
+
+.main .mainCards {
+    display: flex;
+    gap: 20px;
+    width: auto;
+    height: auto;
+    margin: 30px 0;
+    min-height: 150px;
+}
+
+.main .mainCards .mainCard {
+    padding: 20px;
+    height: 150px;
+    width: 250px;
+    border-radius: 24px;
+    transition: all 0.3s ease-in-out;
+    background: none;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    box-shadow: 0px 0px 10px;
+}
+
+.main .mainCards .mainCard h4 {
+    font-size: 20px;
+}
+
+.main .mainCards .mainCard h3 {
+    font-size: 24px;
+}
+
+.main .depoWith {
+    display: flex;
+    width: 20%;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    box-shadow: 0px 0px 10px;
+    padding: 20px;
+    border-radius: 24px;
+}
+
+@keyframes width {
+    0% {
+        width: 40%;
+    }
+    100% {
+        width: 55%;
+    }
+}
+
+.depoWithAnimation {
+    animation: width 1s ease-in-out;
+}
+
+.main .depoWith .depositSection {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: auto;
+    align-items: center;
+    justify-content: center;
+}
+
+.main .depoWith .withdrawSection {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: auto;
+    align-items: center;
+    justify-content: center;
+}
+
+#depositAmount, #withdrawAmount {
+    padding: 5px 10px;
+    border: 2px solid #313131;
+    border-radius: 12px;
+}
+
+#depositAmount::placeholder, #withdrawAmount::placeholder {
+    color: #313131;
+}
+
+#depositBtn, #withdrawBtn {
+    padding: 10px 40px;
+    border: 2px solid #313131;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 500;
+    background-color: #313131;
+    color: #fff;
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+
+#depositBtn:hover, #withdrawBtn:hover {
+    background-color: #fff;
+    color: #313131;
+}
+
+
+#withError {
+    min-height: 25px;
+}
+
+#depoError {
+    min-height: 25px;
+}
+
+.welcome {
+    font-size: 32px;
+    position: absolute;
+    left: 50%;
+    top: 15%;
+    transform: translate(-50%, -15%);
+    display: none;
+    opacity: 0;
+}
+
+#loginPageError {
+    min-height: 20px;
+    opacity: 0;
+}
+
+@keyframes opacityError {
+    0% {
+        opacity: 0;
+    }
+    5% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+.loginPageErrorAnimation {
+    animation: opacityError 5s ease-in-out;
+}
+
+@keyframes drop {
+    0% {
+        height: 0;
+        padding: 0;
+    }
+    100% {
+        height: 150px;
+        padding: 20px;
+    }
+}
+
+@keyframes opacityText {
+    0% {
+        color: #fff;
+    }
+    100% {
+        color: #313131;
+    }
+}
+
+.balanceCardAnimation {
+    animation: drop 3s ease-in-out;
+}
+
+.balanceCardTextAnimation {
+    animation: opacitytext 0.5s ease-in-out;
+}
