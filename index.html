@@ -17,10 +17,10 @@
             </div>
             <div class="loginPage" id="loginPage">
                 <h1>Welcome Back!</h1>
-                <input type="email" placeholder="Username" required id="loginUsername">
-                <input type="password" placeholder="Pin" required id="loginPin">
+                <input type="email" placeholder="Username" id="loginUsername">
+                <input type="password" placeholder="Pin" id="loginPin">
                 <button id="loggedin">Login</button>
-                <h4 id="loginPageError">⚠️ | Invalid Credentials!</h4>
+                <h4 id="loginPageError"></h4>
             </div>
             <div class="signupPage" id="signupPage">
                 <h1>SignUp!</h1>
@@ -32,8 +32,9 @@
                 <h4 id="signupPageError"></h4>
             </div>
         </div>
-        <h1 id="welcome" class="welcome"></h1>
+        
         <div class="main" id="main">
+            <h1 id="welcome" class="welcome"></h1>
             <div class="mainCards">
                 <div class="mainCard balance" id="balanceCard">
                     <h4 id="balanceHeading">Balance</h4>
@@ -63,6 +64,7 @@
                     <h4 id="withError"></h4>
                 </div>
             </div>
+            <button id="logout">Logout</button>
         </div>
     </div>
 
