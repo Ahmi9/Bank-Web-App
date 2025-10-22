@@ -206,6 +206,9 @@ loginBtn.onclick = function () {
                             else if (!newUserEdit) {
                                 oldUserEdit.username = newUsername;
                                 localStorage.setItem("users", JSON.stringify(users));
+                                if (loginUsername === oldUsername) {
+                                loginUsername = newUsername;
+                                }
                                 usernameEditError.textContent = "Updated!";
                                 usernameEditError.classList.add("loginPageErrorAnimation");
                                 usernameEditError.style.opacity = "0";
