@@ -32,9 +32,15 @@
                 <h4 id="signupPageError"></h4>
             </div>
         </div>
-        
+
         <div class="main" id="main">
             <h1 id="welcome" class="welcome"></h1>
+            <div class="nav">
+                <button id="delete">Delete Account</button>
+                <button id="edit">Edit Details</button>
+
+                <button id="logout">Logout</button>
+            </div>
             <div class="mainCards">
                 <div class="mainCard balance" id="balanceCard">
                     <h4 id="balanceHeading">Balance</h4>
@@ -60,16 +66,35 @@
                     <h2>Withdraw</h2>
                     <input type="number" id="withdrawAmount" placeholder="Enter Amount" required>
                     <button id="withdrawBtn">Withdraw</button>
-                    
+
                     <h4 id="withError"></h4>
                 </div>
             </div>
-            <button id="logout">Logout</button>
+
         </div>
     </div>
 
 
+    <div class="editCard" id="editCard">
+        <h1>Edit Details</h1>
 
+        <h4>Change Username</h4>
+        <input type="text" id="oldUsername" placeholder="Enter existing username">
+        <input type="text" id="newUsername" placeholder="Enter new username">
+        <button class="change" id="changeUsername">Change</button>
+        <h4 id="usernameEditError"></h4>
+
+        <h4>Change Pin</h4>
+        <input type="password" id="oldPin" placeholder="Enter existing pin">
+        <input type="password" id="newPin" placeholder="Enter new pin">
+        <button class="change" id="changePin">Change</button>
+        <h4 id="pinEditError"></h4>
+
+        <div class="close">
+            <button id="close">Close</button>
+        </div>
+
+    </div>
 
 
 
