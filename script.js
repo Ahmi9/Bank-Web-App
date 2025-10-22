@@ -5,6 +5,7 @@ const signedUp = document.getElementById("signedUp");
 const welcome = document.getElementById("welcome");
 const loginPageError = document.getElementById("loginPageError");
 const signupPageError = document.getElementById("signupPageError");
+const logout = document.getElementById("logout");
 
 const card = document.getElementById("card");
 
@@ -62,6 +63,7 @@ if (loginPageActive === false || signupPageActive === false) {
     loginPage.style.display = "none";
     signupPage.style.display = "none";
     main.style.display = "none";
+    logout.style.display = "none";
 }
 else {
     alert("error");
@@ -70,6 +72,8 @@ else {
 loginBtn.onclick = function () {
     loginBtn.style.borderBottom = "1px solid #313131";
     signupBtn.style.borderBottom = "1px solid #fff";
+    loginPageError.classList.remove("loginPageErrorAnimation");
+    
 
 
     loginPageActive = true;
@@ -81,16 +85,24 @@ loginBtn.onclick = function () {
         signupPage.style.display = "none";
         loginPageError.style.opacity = "0";
 
+
         loggedIn.onclick = function () {
             loginUsername = document.getElementById("loginUsername").value;
             loginPin = document.getElementById("loginPin").value;
 
-            
+            loginPageError.classList.remove("loginPageErrorAnimation");
+            void loginPageError.offsetWidth;
+
+
 
             let oldUser = users.find(function (u) {
                 return u.username === loginUsername && u.pin == loginPin;
             });
-            if (oldUser) {
+            if (loginUsername === "" || loginPin === "") {
+                loginPageError.textContent = "⚠️ | Fill the fields!";
+                loginPageError.classList.add("loginPageErrorAnimation");
+            }
+            else if (oldUser) {
                 card.style.display = "none";
                 main.style.display = "flex";
                 depoWith.classList.add("depoWithAnimation");
@@ -99,6 +111,22 @@ loginBtn.onclick = function () {
                 welcome.style.display = "flex";
                 welcome.classList.add("opacityAnimation");
                 welcome.style.opacity = "1";
+
+                logout.style.display = "flex";
+                logout.classList.add("opacityAnimation");
+                logout.style.opacity = "1";
+
+                logout.onclick = function () {
+                    card.style.display = "flex";
+                    card.style.height = "100px";
+                    main.style.display = "none";
+                    logout.style.display = "none";
+                    welcome.style.opacity = "0";
+                    loginPage.style.display = "none";
+                    signupPage.style.display = "none";
+                    loginBtn.style.borderBottom = "none";
+                    signupBtn.style.borderBottom = "none";
+                }
 
                 bal = oldUser.balance;
                 deposit = oldUser.deposit
@@ -156,9 +184,11 @@ loginBtn.onclick = function () {
                 }
             }
             else {
+                loginPageError.textContent = "⚠️ | Wrong Credentials!";
                 loginPageError.classList.add("loginPageErrorAnimation");
             }
             
+
         }
     }
     else {
@@ -169,6 +199,9 @@ loginBtn.onclick = function () {
 signupBtn.onclick = function () {
     signupBtn.style.borderBottom = "1px solid #313131";
     loginBtn.style.borderBottom = "1px solid #fff";
+    signupPageError.classList.remove("loginPageErrorAnimation");
+    signupPageError.style.opacity = "0";
+
     loginPageActive = false;
     signupPageActive = true;
     if (loginPageActive === false && signupPageActive === true) {
@@ -176,23 +209,35 @@ signupBtn.onclick = function () {
         card.style.height = "400px";
         loginPage.style.display = "none";
         signupPage.style.display = "flex";
+        signupPageError.classList.remove("loginPageErrorAnimation");
+        signupPageError.style.opacity = "0";
 
         signedUp.onclick = function () {
             signupUsername = document.getElementById("signupUsername").value;
             signupPin = document.getElementById("signupPin").value;
+
+            signupPageError.classList.remove("loginPageErrorAnimation");
+            void signupPageError.offsetWidth;
+
+
             let existingUser = users.find(function (u) {
                 return u.username === signupUsername;
             });
-            if (existingUser) {
-                signupPageError.textContent = "⚠️ | Username already exists.";
+            if (signupUsername === "" || signupPin === "") {
+                signupPageError.textContent = "⚠️ | Fill the fields!";
                 signupPageError.classList.add("loginPageErrorAnimation");
             }
-            else {
+            else if (existingUser) {
+                signupPageError.textContent = "⚠️ | Username already exists.";
+                signupPageError.classList.add("loginPageErrorAnimation");
 
-            users.push({ username: `${signupUsername}`, pin: `${signupPin}`, balance: 0, deposit: 0, withdraw: 0 });
-            localStorage.setItem("users", JSON.stringify(users));
-            signupPageError.textContent = "Account Created! Now Login.";
-            signupPageError.classList.add("loginPageErrorAnimation");
+            }
+            else {
+                users.push({ username: `${signupUsername}`, pin: `${signupPin}`, balance: 0, deposit: 0, withdraw: 0 });
+                localStorage.setItem("users", JSON.stringify(users));
+
+                signupPageError.textContent = "Account Created! Now Login.";
+                signupPageError.classList.add("loginPageErrorAnimation");
             }
         }
     }
