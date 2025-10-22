@@ -6,6 +6,19 @@ const welcome = document.getElementById("welcome");
 const loginPageError = document.getElementById("loginPageError");
 const signupPageError = document.getElementById("signupPageError");
 const logout = document.getElementById("logout");
+const deleteUser = document.getElementById("delete");
+const editUser = document.getElementById("edit");
+const editCard = document.getElementById("editCard");
+
+let oldUsername;
+let oldPin;
+let newUsername;
+let newPin;
+const changeUsername = document.getElementById("changeUsername");
+const changePin = document.getElementById("changePin");
+const close = document.getElementById("close");
+const usernameEditError = document.getElementById("usernameEditError");
+const pinEditError = document.getElementById("pinEditError");
 
 const card = document.getElementById("card");
 
@@ -58,6 +71,11 @@ let users = JSON.parse(localStorage.getItem("users")) || [];
 
 
 
+
+editCard.style.display = "none";
+
+
+
 if (loginPageActive === false || signupPageActive === false) {
     card.style.height = "100px";
     loginPage.style.display = "none";
@@ -73,7 +91,7 @@ loginBtn.onclick = function () {
     loginBtn.style.borderBottom = "1px solid #313131";
     signupBtn.style.borderBottom = "1px solid #fff";
     loginPageError.classList.remove("loginPageErrorAnimation");
-    
+
 
 
     loginPageActive = true;
@@ -112,9 +130,19 @@ loginBtn.onclick = function () {
                 welcome.classList.add("opacityAnimation");
                 welcome.style.opacity = "1";
 
+
+
                 logout.style.display = "flex";
                 logout.classList.add("opacityAnimation");
                 logout.style.opacity = "1";
+
+                deleteUser.style.display = "flex";
+                deleteUser.classList.add("opacityAnimation");
+                deleteUser.style.opacity = "1";
+
+                editUser.style.display = "flex";
+                editUser.classList.add("opacityAnimation");
+                editUser.style.opacity = "1";
 
                 logout.onclick = function () {
                     card.style.display = "flex";
@@ -127,6 +155,119 @@ loginBtn.onclick = function () {
                     loginBtn.style.borderBottom = "none";
                     signupBtn.style.borderBottom = "none";
                 }
+
+                deleteUser.onclick = function () {
+                    alert("Are you sure?");
+                    users = users.filter(function (d) {
+                        return d.username !== oldUser.username;
+                    });
+
+                    card.style.display = "flex";
+                    card.style.height = "100px";
+                    main.style.display = "none";
+                    logout.style.display = "none";
+                    welcome.style.opacity = "0";
+                    loginPage.style.display = "none";
+                    signupPage.style.display = "none";
+                    loginBtn.style.borderBottom = "none";
+                    signupBtn.style.borderBottom = "none";
+                }
+
+                editUser.onclick = function () {
+                    main.style.display = "none";
+                    editCard.classList.add("editCardAnimation");
+                    editCard.style.display = "flex";
+                    
+                    changeUsername.onclick = function () {
+                        oldUsername = document.getElementById("oldUsername").value;
+                        newUsername = document.getElementById("newUsername").value;
+                        usernameEditError.classList.remove("loginPageErrorAnimation");
+                        void usernameEditError.offsetWidth;
+
+
+                        let oldUserEdit = users.find(function (oldU) {
+                            return oldU.username === oldUsername;
+                        });
+                        if (oldUserEdit) {
+                            let newUserEdit = users.find(function (newU) {
+                                return newU.username === newUsername;
+                            });
+                            if (newUsername === ""){
+                                
+                                usernameEditError.textContent = "Enter a valid username!";
+                                usernameEditError.classList.add("loginPageErrorAnimation");
+                                usernameEditError.style.opacity = "0";
+                            }
+                            else if (newUserEdit){
+                                usernameEditError.textContent = "Username already exists!";
+                                usernameEditError.classList.add("loginPageErrorAnimation");
+                                usernameEditError.style.opacity = "0";
+                            }
+                            else if (!newUserEdit) {
+                                oldUserEdit.username = newUsername;
+                                localStorage.setItem("users", JSON.stringify(users));
+                                usernameEditError.textContent = "Updated!";
+                                usernameEditError.classList.add("loginPageErrorAnimation");
+                                usernameEditError.style.opacity = "0";
+                                
+                            } 
+                            else {
+                                usernameEditError.textContent = "Error!";
+                                usernameEditError.classList.add("loginPageErrorAnimation");
+                                usernameEditError.style.opacity = "0";
+                            }
+                        } 
+                        else {
+                            usernameEditError.textContent = "Enter your current username!";
+                            usernameEditError.classList.add("loginPageErrorAnimation");
+                            usernameEditError.style.opacity = "0";
+                        }
+                    }
+
+
+                    changePin.onclick = function () {
+                        oldPin = document.getElementById("oldPin").value;
+                        newPin = document.getElementById("newPin").value;
+                        pinEditError.classList.remove("loginPageErrorAnimation");
+                        void pinEditError.offsetWidth;
+    
+    
+                        let oldPinEdit = users.find(function (oldP) {
+                            return oldP.pin === oldPin && oldP.username === loginUsername;
+                        });
+                        if (newPin === ""){
+                            pinEditError.textContent = "Enter a valid pin!";
+                            pinEditError.classList.add("loginPageErrorAnimation");
+                            pinEditError.style.opacity = "0";
+                        }
+                        else if (oldPinEdit) {
+                            oldPinEdit.pin = newPin;
+                            localStorage.setItem("users", JSON.stringify(users));
+                            pinEditError.textContent = "Updated!";
+                            pinEditError.classList.add("loginPageErrorAnimation");
+                            pinEditError.style.opacity = "0";
+                        }
+                        else {
+                            pinEditError.textContent = "Error!";
+                            pinEditError.classList.add("loginPageErrorAnimation");
+                            pinEditError.style.opacity = "0";
+                        }
+                    }
+
+                    close.onclick = function() {
+                        main.style.display = "flex";
+                        editCard.style.display = "none";
+                    }
+                }
+
+                
+                
+
+
+
+
+
+
 
                 bal = oldUser.balance;
                 deposit = oldUser.deposit
@@ -187,7 +328,7 @@ loginBtn.onclick = function () {
                 loginPageError.textContent = "⚠️ | Wrong Credentials!";
                 loginPageError.classList.add("loginPageErrorAnimation");
             }
-            
+
 
         }
     }
@@ -245,4 +386,6 @@ signupBtn.onclick = function () {
         alert("error");
     }
 }
+
+
 
